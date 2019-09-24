@@ -1,0 +1,33 @@
+<%  include ./partials/header  %>
+
+
+<section class="w-section">
+    
+        <div class="w-sec"> 
+            <div class="form-container">
+                <form action="/signup" method="post">
+                  <div>
+                    <h1 class="title is-5">Create Account</h1>
+                    <% include ./partials/messages %>
+                  </div>
+                  <div>
+                    
+                    <input type="text" placeholder="Username" name="user" value="<%= typeof user != 'undefined'?user:''%>">
+                  </div>
+                  <div>
+                    <input type="email" placeholder="Email" name="email" value="<%= typeof email != 'undefined'?email:''%>">
+                  </div>
+                  <div>
+                    <input type="password" placeholder="Password" name="password">
+                  </div>
+                  <div>
+                    <input type="password" placeholder="Confirm Password" name="repass">
+                  </div>
+                    <button type="submit" id="btn">Create Account</button>
+                </form>
+                <div style="margin-top:16px"></div>
+                <p style="font-size: 14px;text-align:center">Already have an account ? <a href="/signin">Login</a></p>
+              </div>
+        </div>
+      </section>
+<%  include ./partials/footer %>

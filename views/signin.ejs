@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+<section class="w-section">
+  <div class="w-sec">
+    <div class="form-container">
+      <div class="hed">
+        <h1 class="">Sign in</h1>
+        <small>It's so nice to see you !</small>
+      </div>
+      <form action="/signin" method="post">
+        <div>
+          <% include ./partials/messages %>
+        </div>
+        <div>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value="<%= typeof email != 'undefined'?email:''%>"
+          />
+        </div>
+        <div>
+          <input type="password" placeholder="Password" name="password" />
+        </div>
+        <button type="submit" id="btn">Sign In</button>
+      </form>
+      <div style="margin-top:16px"></div>
+      <p style="font-size: 14px;text-align:center">
+        Don't have an account yet ? <a href="/signup">Click Here</a>
+      </p>
+    </div>
+  </div>
+</section>
+<% include ./partials/footer %>
