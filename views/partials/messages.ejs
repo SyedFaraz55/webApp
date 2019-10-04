@@ -1,6 +1,17 @@
-<% if(typeof err != 'undefined') { %> <%= err.message %> <br><% } %>
-<!--  -->
-<% if(typeof errors != 'undefined') { %> <% errors.forEach(function(error){ %>
-<%= error.msg %> <br />
+<% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error) { %>
+        <%= error.msg %>
+    <%});%>
+<%}%>
 
-<% }); %> <% } %>
+<% if(success_msg != '') { %>
+    <%= success_msg %>
+    <% }  %>
+
+    <% if(error_msg != '') { %>
+        <%= error_msg %>
+        <% }  %>
+
+         <% if(error!= '') { %>
+        <%= error %>
+        <% }  %>
