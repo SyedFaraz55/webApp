@@ -13,12 +13,20 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    confirm:{
+        type:Boolean,
+        default:false
+    },
+    hash:{
+        type:String,
+        required:true
+    },
     date:{
         type:Date,
         default:Date.now
     }
 });
 
-const  User = mongoose.model("User",UserSchema);
+const  User = mongoose.model("user",UserSchema);
 
 module.exports = User;

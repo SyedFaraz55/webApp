@@ -1,33 +1,45 @@
-<% include ./partials/header %>
-<section>
-  <div class="w-sec" id="back">
-    <div>
-      <div class="head">
-        <h1 class="tap">Sign in</h1>
-        <small>It's so nice to see you !</small>
-      </div>
-      <form action="/signin" method="post">
-        <div>
-          <% include ./partials/messages %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EventBay | Sign In</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="content">
+                <h2 class="fade-in">Don't Have an Account Yet ?</h2>
+                <small id="line" class="fade-in">Let's Get you all setup so you can start <br>creating awesome events</small>
+                <a href="/signup" id="login" class="fade-in">Sign Up</a>
+            </div>
+            <div class="form fade-in">
+                <div>
+                    <% include ./partials/messages %>
+                </div>
+                <div class="form-head">
+                    <h3>Sign In to your Account</h3>
+                    <small id="line">Sign in to your account so you can start <br>creating awesome events</small>
+                </div>
+                <form action="/signin" method="post">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" value="<%= typeof email != 'undefined'?email:''%>">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="password">
+                    </div>
+                    <div>
+                        <p id="shortLink"><a href="#">Forget Password?</a><a href="/" class="visible"> | &nbsp;Home</a></p>
+                    </div>
+                    <button type="submit" id="submit">Sign In</button>
+                </form>
+            </div>
         </div>
-        <div>
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            value="<%= typeof email != 'undefined'?email:''%>"
-          />
-        </div>
-        <div>
-          <input type="password" placeholder="Password" name="password" />
-        </div>
-        <button type="submit" id="btn">Sign In</button>
-      </form>
-      <div style="margin-top:16px"></div>
-      <p style="font-size: 14px;text-align:center">
-        Don't have an account yet ? <a href="/signup">Click Here</a>
-      </p>
-    </div>
-  </div>
-</section>
-<% include ./partials/footer %>
+    </header>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -20,9 +20,9 @@ app.use(express.urlencoded({extended:false}));
 app.set("view engine","ejs");
 
 app.use(session({
-    secret:"Ilovecats",
-    resave:true,
-    saveUninitialized:true
+    secret: 'secret',
+    saveUninitialized: false,
+    resave: false
 }));
 
 app.use(passport.initialize());
@@ -40,14 +40,15 @@ app.use((req,res,next)=>{
 });
 
 
-app.get("/",routes.notAuth,routes.index);
+app.get("/",routes.Auth,routes.index);
 app.get("/explore",routes.explore);
-app.get("/signup",routes.signup);
-app.get("/signin",routes.notAuth,routes.signin);
+app.get("/signup",routes.Auth,routes.signup);
+app.get("/signin",routes.Auth,routes.signin);
 app.get("/logout",routes.logout);
 app.get("/dashboard",ensureAuthenticated,routes.dashboard);
-app.post("/signup",routes.postSignup);
-app.post("/signin",routes.postSignin);
+app.post("/signup",routes.Auth,routes.postSignup);
+app.post("/signin",routes.Auth,routes.postSignin);
+app.get("/verification/",routes.verify);
 app.get("*",routes.notFound);
 
 

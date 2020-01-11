@@ -1,48 +1,49 @@
-<% include ./partials/header %>
+<!DOCTYPE html>
+<html>
 
-  <section>   
-    <div class="w-sec">
-      <div class="form-container">
-          <h1 class="create-account">Create Account</h1>
-        <form action="/signup" method="post">
-          <div>
-            <% include ./partials/messages %>
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              placeholder="Username"
-              name="name"
-              value="<%typeof name != 'undefined'?name:''%>"
-            />
-          </div>
-          <div>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value="<%= typeof email != 'undefined'?email:''%>"
-            />
-          </div>
-          <div>
-            <input type="password" placeholder="Password" name="password" />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              name="password2"
-            />
-          </div>
-          <button type="submit" id="btn">Create Account</button>
-        </form>
+<head>
+    <title>EventBay | SignUp</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <script src="main.js"></script>
+</head>
 
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="content">
+                <h2 class="fade-in">Already Signed Up ?</h2>
+                <small class="fade-in">Login to your account so you can continue to <br> create & manage events</small>
+                <a href="/signin" id="login" class="fade-in">Sign In</a>
+            </div>
+            <div class="form fade-in">
+                <div>
+                    <% include ./partials/messages %>
+                </div><br>
+                <div class="form-head">
+                    <h3>Sign Up for an Account</h3>
+                    <small id="line">Let's Get you all setup so you can start <br>creating awesome events</small>
+                </div>
+                <form action="/signup" method="post">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Username" value="<%typeof name != 'undefined'?name:''%>">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" value="<%= typeof email != 'undefined'?email:''%>">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password2" placeholder="confirm password">
+                    </div>
+                    <button type="submit" id="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
 
-        <div style="margin-top:16px"></div>
-        <p style="font-size: 14px;text-align:center">
-          Already have an account ? <a href="/signin">Login</a>
-        </p>
-      </div>
-    </div>
-  </section>
-  <% include ./partials/footer %>
+</html>
